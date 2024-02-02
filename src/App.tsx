@@ -26,6 +26,11 @@ function App() {
     if (cpfArray.length < 10) {
       return;
     }
+    const cpfSet = new Set(cpfArray);
+    if (cpfSet.size === 1) {
+      setCpfValido(false);
+      return;
+    }
     const resultadoEtapa1 = loop(1);
     let verificar1 = (resultadoEtapa1 * 10) % 11;
     if (verificar1.toString().length > 1) {
